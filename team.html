@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet Our Beloved Staff - Reyn Gwyneth’s Make Up Store</title>
+    
+    <!-- Elegant Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Girly Theme Variables --- */
+        :root {
+            --pink-light: #FFF0F2;
+            --pink-base: #FFD1DC;
+            --pink-dark: #FF8DA1;
+            --rose-gold: #B76E79;
+            --text-color: #4A3E40;
+            --white: #FFFFFF;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --shadow: 0 8px 24px rgba(255, 141, 161, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-color);
+            background-color: var(--pink-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Pretty pink scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--pink-light);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--pink-base);
+            border-radius: 10px;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 209, 220, 0.5);
+        }
+
+        .logo-area h1 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--rose-gold);
+            font-weight: 700;
+        }
+
+        .logo-area span {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--pink-dark);
+            display: block;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--pink-dark);
+        }
+
+        .cart-icon {
+            background: var(--pink-base);
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-family: var(--font-sans);
+            font-weight: 600;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        /* --- Team Layout Grid --- */
+        main {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            color: var(--rose-gold);
+            margin-bottom: 3rem;
+        }
+
+        .section-title::after {
+            content: '✨ 🎀 ✨';
+            display: block;
+            font-size: 0.9rem;
+            margin-top: 0.4rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 209, 220, 0.4);
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            border-color: var(--pink-base);
+        }
+
+        .team-avatar {
+            width: 90px;
+            height: 90px;
+            background-color: var(--pink-light);
+            border-radius: 50%;
+            margin: 0 auto 1.2rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            border: 2px dashed var(--pink-dark);
+        }
+
+        .team-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            color: var(--rose-gold);
+            margin-bottom: 0.2rem;
+        }
+
+        .role {
+            font-weight: 600;
+            color: var(--pink-dark);
+            font-size: 0.95rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .bio {
+            font-size: 0.9rem;
+            color: #6b5b5d;
+            line-height: 1.5;
+        }
+
+        footer {
+            background-color: var(--white);
+            text-align: center;
+            padding: 2rem 1.5rem;
+            margin-top: 5rem;
+            border-top: 1px solid var(--pink-base);
+            font-size: 0.85rem;
+            color: #8a7a7c;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <h1>Reyn Gwyneth’s Make Up Store</h1>
+            <span>Dainty &amp; Delightful Cosmetics</span>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="team.html">Our Team</a>
+            <button class="cart-icon">🛒 Bag (<span id="cart-count">0</span>)</button>
+        </nav>
+    </header>
+
+    <main>
+        <h2 class="section-title">Meet Our Beloved Staff</h2>
+        
+        <div class="team-grid">
+            <!-- Staff 1 -->
+            <div class="team-card">
+                <div class="team-avatar">🌸</div>
+                <h3>Aleli Sunshine</h3>
+                <span class="role">Lead Esthetician &amp; Stylist</span>
+                <p class="bio">Aleli brings a radiant warmth to the store, curating sweet and glowing looks customized perfectly to your natural bone structure and skin tone.</p>
+            </div>
+
+            <!-- Staff 2 -->
+            <div class="team-card">
+                <div class="team-avatar">🎀</div>
+                <h3>Angelyn Gonzales</h3>
+                <span class="role">Master Makeup Artist</span>
+                <p class="bio">Specializing in vintage-inspired aesthetics, Angelyn is our expert hand behind creating the perfect doll-like velvet finish and signature cat-eyes.</p>
+            </div>
+
+            <!-- Staff 3 -->
+            <div class="team-card">
+                <div class="team-avatar">🩰</div>
+                <h3>Jhoanne Albo</h3>
+                <span class="role">Cosmetics Consultant</span>
+                <p class="bio">With an immaculate eye for color theory, Jhoanne helps match you with the dreamiest shade palettes and lip ribbons for that instant aura transformation.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Reyn Gwyneth’s Make Up Store. Crafted with 🎀 for beauty dreamers.</p>
+    </footer>
+
+    <script>
+        // Simple script to keep navbar items looking active if clicked
+        let count = 0; 
+        // Can be linked with localStorage later if needed for persistent bags!
+    </script>
+</body>
+</html>
