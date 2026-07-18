@@ -1,0 +1,294 @@
+/* --- Girly Theme Variables --- */
+:root {
+    --pink-light: #FFF0F2;
+    --pink-base: #FFD1DC;
+    --pink-dark: #FF8DA1;
+    --rose-gold: #B76E79;
+    --text-color: #4A3E40;
+    --white: #FFFFFF;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    --shadow: 0 8px 24px rgba(255, 141, 161, 0.15);
+    --transition: all 0.3s ease;
+}
+
+/* --- Global Resets & Scrollbar --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--text-color);
+    background-color: var(--pink-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--pink-light);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--pink-base);
+    border-radius: 10px;
+}
+
+/* --- Navigation Header --- */
+header {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 209, 220, 0.5);
+}
+
+.logo-area h1 {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    color: var(--rose-gold);
+    font-weight: 700;
+}
+
+.logo-area span {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--pink-dark);
+    display: block;
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+nav a::after {
+    content: '🎀';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    font-size: 0.7rem;
+    transition: var(--transition);
+}
+
+nav a:hover {
+    color: var(--pink-dark);
+}
+
+nav a:hover::after {
+    transform: translateX(-50%) scale(1);
+}
+
+.cart-icon {
+    background: var(--pink-base);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.cart-icon:hover {
+    background: var(--pink-dark);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* --- Layouts & Typography --- */
+.hero {
+    text-align: center;
+    padding: 6rem 1.5rem;
+    background: linear-gradient(180deg, rgba(255,255,255,0.6) 0%, rgba(255,240,242,1) 100%);
+}
+
+.hero h2 {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    color: var(--rose-gold);
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    color: #6b5b5d;
+}
+
+.cta-btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--pink-dark);
+    color: var(--white);
+    padding: 0.8rem 2.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.cta-btn:hover {
+    background-color: var(--rose-gold);
+    transform: translateY(-3px);
+}
+
+main {
+    padding: 4rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    color: var(--rose-gold);
+    margin-bottom: 3rem;
+}
+
+.section-title::after {
+    content: '✨ 🎀 ✨';
+    display: block;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* Responsive CSS Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+.product-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid rgba(255, 209, 220, 0.4);
+    transition: var(--transition);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card::before {
+    content: '💖';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow);
+    border-color: var(--pink-base);
+}
+
+.product-card:hover::before {
+    opacity: 1;
+}
+
+.product-img-placeholder {
+    width: 100%;
+    height: 180px;
+    background-color: var(--pink-light);
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+
+.product-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    color: var(--rose-gold);
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    font-weight: 600;
+    color: var(--pink-dark);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.description {
+    font-size: 0.9rem;
+    color: #7a6a6c;
+    margin-bottom: 1.5rem;
+}
+
+.add-to-cart-btn {
+    background: transparent;
+    border: 1.5px solid var(--pink-dark);
+    color: var(--pink-dark);
+    padding: 0.6rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 100%;
+}
+
+.add-to-cart-btn:hover {
+    background: var(--pink-dark);
+    color: var(--white);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--white);
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    margin-top: 5rem;
+    border-top: 1px solid var(--pink-base);
+    font-size: 0.9rem;
+    color: #8a7a7c;
+}
+
+/* --- Mobile Breakpoints --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    nav {
+        gap: 1.2rem;
+    }
+    .hero h2 {
+        font-size: 2.2rem;
+    }
+}
