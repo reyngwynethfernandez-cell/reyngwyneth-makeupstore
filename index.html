@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reyn Gwyneth’s Make Up Store</title>
+    
+    <!-- Elegant Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Girly Theme Variables --- */
+        :root {
+            --pink-light: #FFF0F2;
+            --pink-base: #FFD1DC;
+            --pink-dark: #FF8DA1;
+            --rose-gold: #B76E79;
+            --text-color: #4A3E40;
+            --white: #FFFFFF;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --shadow: 0 8px 24px rgba(255, 141, 161, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-color);
+            background-color: var(--pink-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Pretty pink scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--pink-light);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--pink-base);
+            border-radius: 10px;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 209, 220, 0.5);
+        }
+
+        .logo-area h1 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--rose-gold);
+            font-weight: 700;
+        }
+
+        .logo-area span {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--pink-dark);
+            display: block;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--pink-dark);
+        }
+
+        .cart-icon {
+            background: var(--pink-base);
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-family: var(--font-sans);
+            font-weight: 600;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 5rem 1.5rem;
+            background: linear-gradient(180deg, rgba(255,255,255,0.6) 0%, rgba(255,240,242,1) 100%);
+        }
+
+        .hero h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--rose-gold);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+            color: #6b5b5d;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            text-decoration: none;
+            background-color: var(--pink-dark);
+            color: var(--white);
+            padding: 0.7rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .cta-btn:hover {
+            background-color: var(--rose-gold);
+            transform: translateY(-2px);
+        }
+
+        /* --- Product Layout Grid --- */
+        main {
+            padding: 3rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--rose-gold);
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title::after {
+            content: '✨ 🎀 ✨';
+            display: block;
+            font-size: 0.9rem;
+            margin-top: 0.4rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(255, 209, 220, 0.4);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            border-color: var(--pink-base);
+        }
+
+        .product-img-placeholder {
+            width: 100%;
+            height: 150px;
+            background-color: var(--pink-light);
+            border-radius: 12px;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+        }
+
+        .product-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            color: var(--rose-gold);
+            margin-bottom: 0.4rem;
+        }
+
+        .price {
+            font-weight: 600;
+            color: var(--pink-dark);
+            font-size: 1.15rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .description {
+            font-size: 0.85rem;
+            color: #7a6a6c;
+            margin-bottom: 1.2rem;
+        }
+
+        .add-to-cart-btn {
+            background: transparent;
+            border: 1.5px solid var(--pink-dark);
+            color: var(--pink-dark);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .add-to-cart-btn:hover {
+            background: var(--pink-dark);
+            color: var(--white);
+        }
+
+        footer {
+            background-color: var(--white);
+            text-align: center;
+            padding: 2rem 1.5rem;
+            margin-top: 4rem;
+            border-top: 1px solid var(--pink-base);
+            font-size: 0.85rem;
+            color: #8a7a7c;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <h1>Reyn Gwyneth’s Make Up Store</h1>
+            <span>Dainty &amp; Delightful Cosmetics</span>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="team.html">Our Team</a>
+            <button class="cart-icon">🛒 Bag (<span id="cart-count">0</span>)</button>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Unveil Your Softest Glow</h2>
+        <p>Step into a world filled with soft blushes, pearl-kissed highlighters, and dainty beauty treats designed to make you feel like poetry.</p>
+        <a href="products.html" class="cta-btn">Shop the Collection</a>
+    </section>
+
+    <main>
+        <h2 class="section-title">New Arrivals</h2>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <div>
+                    <div class="product-img-placeholder">🎨</div>
+                    <h3>Coquette Rosewood Palette</h3>
+                    <p class="price">₱1,200.00</p>
+                    <p class="description">Delicate matte roses and glittering pearl finishes for the sweetest gaze.</p>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart()">Add to Bag</button>
+            </div>
+
+            <div class="product-card">
+                <div>
+                    <div class="product-img-placeholder">💄</div>
+                    <h3>Glass-Lip Ribbon Gloss</h3>
+                    <p class="price">₱850.00</p>
+                    <p class="description">High-shine nourishment infused with real wild cherry oil extracts.</p>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart()">Add to Bag</button>
+            </div>
+
+            <div class="product-card">
+                <div>
+                    <div class="product-img-placeholder">🌸</div>
+                    <h3>Dollface Velvet Blush</h3>
+                    <p class="price">₱950.00</p>
+                    <p class="description">A cloud-soft flushed finish that lasts effortlessly from morning tea till dusk.</p>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart()">Add to Bag</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Reyn Gwyneth’s Make Up Store. Crafted with 🎀 for beauty dreamers.</p>
+    </footer>
+
+    <script>
+        let count = 0;
+        function addToCart() {
+            count++;
+            document.getElementById('cart-count').innerText = count;
+            alert("Added to your beauty bag! 💖✨");
+        }
+    </script>
+</body>
+</html>
