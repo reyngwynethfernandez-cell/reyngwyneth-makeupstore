@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reyn Gwyneth Makeup Store</title>
+    <style>
+        :root {
+            --primary-color: #ffb6c1;
+            --dark-color: #4a3b32;
+            --accent-color: #d4a373;
+            --light-bg: #fff0f5;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--dark-color);
+        }
+
+        header {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: var(--dark-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 180px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .product-card h3 {
+            margin: 10px 0 5px 0;
+            font-size: 1.2rem;
+        }
+
+        .price {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: var(--dark-color);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #ff99aa;
+        }
+
+        /* Cart & Checkout Section */
+        .sidebar {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            height: fit-content;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item button {
+            background: none;
+            border: none;
+            color: red;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .total-section {
+            margin-top: 20px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            border-top: 2px solid var(--primary-color);
+            padding-top: 15px;
+        }
+
+        /* Checkout Form */
+        .checkout-form {
+            margin-top: 25px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .checkout-form h3 {
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        /* Footer & Contact */
+        footer {
+            background-color: white;
+            margin-top: 50px;
+            padding: 30px 20px;
+            border-top: 3px solid var(--primary-color);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .contact-info p {
+            margin: 8px 0;
+        }
+
+        .contact-info a {
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Reyn Gwyneth Makeup Store</h1>
+        <p>Enhance your natural beauty</p>
+    </header>
+
+    <div class="container">
+        <!-- Products Section -->
+        <div>
+            <h2>Our Collection</h2>
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-img">✨ Matte Lipstick</div>
+                    <h3>Velvet Matte Lipstick</h3>
+                    <div class="price">₱350</div>
+                    <button class="btn" onclick="addToCart('Velvet Matte Lipstick', 350)">Add to Cart</button>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-img">✨ Glow Foundation</div>
+                    <h3>Flawless Foundation</h3>
+                    <div class="price">₱499</div>
+                    <button class="btn" onclick="addToCart('Flawless Foundation', 499)">Add to Cart</button>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-img">✨ Blush Palette</div>
+                    <h3>Peach Blush Palette</h3>
+                    <div class="price">₱280</div>
+                    <button class="btn" onclick="addToCart('Peach Blush Palette', 280)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shopping Cart & Checkout Sidebar -->
+        <div class="sidebar">
+            <h2>Your Cart</h2>
+            <div id="cart-items">
+                <p style="color: #aaa; text-align: center;">Your cart is empty</p>
+            </div>
+            
+            <div class="total-section">
+                <span>Total:</span>
+                <span id="cart-total">₱0</span>
+            </div>
+
+            <!-- Checkout Form -->
+            <div class="checkout-form">
+                <h3>Checkout Details</h3>
+                <form id="checkout-form" onsubmit="processCheckout(event)">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required placeholder="e.g. Jane Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Delivery Address</label>
+                        <input type="text" id="address" required placeholder="Your address">
+                    </div>
+                    <button type="submit" class="btn" style="background-color: var(--accent-color); color: white;">Place Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Info Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Reyn Gwyneth Makeup Store</h3>
+                <p>&copy; 2026 All Rights Reserved.</p>
+            </div>
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p>📞 <strong>Phone:</strong> <a href="tel:09054452941">09054452941</a></p>
+                <p>✉️ <strong>Email:</strong> <a href="mailto:gwenny0528@gmail.com">gwenny0528@gmail.com</a></p>
+                <p>👤 <strong>Facebook:</strong> <a href="https://www.facebook.com/search/top/?q=Reyn%20Gwyneth%20Fernandez" target="_blank">Reyn Gwyneth Fernandez</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic JavaScript -->
+    <script>
+        let cart = [];
+
+        function addToCart(name, price) {
+            // Check if item already exists in cart
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name: name, price: price, quantity: 1 });
+            }
+            updateCartUI();
+        }
+
+        function removeFromCart(name) {
+            cart = cart.filter(item => item.name !== name);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="color: #aaa; text-align: center;">Your cart is empty</p>';
+                cartTotalElement.innerText = '₱0';
+                return;
+            }
+
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+
+                const itemElement = document.createElement('div');
+                itemElement.className = 'cart-item';
+                itemElement.innerHTML = `
+                    <div>
+                        <strong>${item.name}</strong> <br>
+                        <small>₱${item.price} x ${item.quantity}</small>
+                    </div>
+                    <div>
+                        <span>₱${itemTotal}</span>
+                        <button onclick="removeFromCart('${item.name}')" style="margin-left: 10px;">✕</button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(itemElement);
+            });
+
+            cartTotalElement.innerText = `₱${total}`;
+        }
+
+        function processCheckout(event) {
+            event.preventDefault();
+            
+            if (cart.length === 0) {
+                alert('Your cart is empty. Add some items before checking out!');
+                return;
+            }
+
+            const name = document.getElementById('name').value;
+            alert(`Thank you for your order, ${name}! Your purchase has been processed successfully.`);
+            
+            // Clear cart and form after purchase
+            cart = [];
+            updateCartUI();
+            document.getElementById('checkout-form').reset();
+        }
+    </script>
+</body>
+</html>
